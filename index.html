@@ -1,0 +1,837 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>The HopeBuilders Foundation</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- main css  -->
+    <link rel="stylesheet" href="main.css">
+
+    <!-- Font awesome link -->
+    <script src="https://kit.fontawesome.com/88707c971e.js" crossorigin="anonymous"></script> 
+
+     <!-- google fonts--> 
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+
+     <!-- Animate.css -->
+     <link
+     rel="stylesheet"
+     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+   />
+
+   <style>
+    /* CSS to position the image in the top-left corner */
+    #logo {
+        position: fixed;
+        top: 0px; /* Adjust this value to your desired distance from the top */
+        left: 10px; /* Adjust this value to your desired distance from the left */
+        z-index: 9999; /* Ensure the logo stays on top of other content */
+    }
+
+    #bottomLeftImage {
+         
+  position: fixed;
+  top: 54px; /* Adjust this value to your desired distance from the bottom */
+  right: 70px; /* Adjust this value to your desired distance from the right */
+  z-index: 9999; /* Ensure the image stays on top of other content */
+  height: 120px; /* Set the height of the image */
+  animation: slideInFromBottom 3s forwards; /* Animation effect */
+        
+    
+    }
+
+    @keyframes slideInFromBottom {
+        0% {
+            top: -100px; /* Starting position */
+        }
+        100% {
+            right: 70px; /* Final position */
+        }
+    }
+</style>
+
+   <script src="script.js" defer></script>
+    </head>
+  <body>
+<!---->
+
+
+<header>
+
+<nav class="navbar navbar-expand-lg navbar-light nav-bg fixed-top py-2" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand text-black" href="#">
+            <img id="logo" src="Opera_Snapshot_2024-03-17_220553_docs.google.com-removebg-preview.png" alt="Logo" style="height: 70px;">
+        </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button"
+            data-toggle="collapse" data-target="#myNavbar" aria-controls="myNavbar" 
+            aria-expanded="false" aria-label="toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button> 
+
+         <div class="collapse navbar-collapse" id="myNavbar">
+            <ul style="text-align: center" class="navbar-nav ml-auto my-2 my-lg-0" >
+                <li class="nav-item"><a class="nav-link" href="#About Us">Who we are?</a></li> &nbsp; &nbsp; &nbsp; &nbsp;
+                <li class="nav-item"><a class="nav-link" href="#Stories">Stories</a></li> &nbsp; &nbsp; &nbsp; &nbsp;
+                <li class="nav-item"><a class="nav-link" href="#Projects">Projects</a></li> &nbsp; &nbsp; &nbsp; &nbsp;
+                <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>&nbsp; &nbsp; &nbsp; &nbsp;
+                <li class="nav-item"><a class="nav-link" href="career.html">Careers</a></li>
+               
+            </ul>
+
+            <div class="payment">
+                
+                <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_NqEuHzeQ7t0fNx" async> </script> </form>
+                </div>
+            <ul class="navbar-nav login"> 
+                <li><a href="Signup.html">Volunteer Us 🤝</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+</header>
+<!-- end navbar -->
+
+<!-- hero section -->
+
+<!-- newsltter pop up -->
+<div id="newsletter-popup" class="newsletter-popup">
+    <div class="newsletter-content">
+      <span class="close">&times;</span>
+      <h2>Subscribe to Our Newsletter</h2>
+      <p>Stay updated with our latest news and offers!</p>
+
+
+      <form id="subscribe-form" action="https://script.google.com/macros/s/AKfycbxjmh8j7Y0P7HPXR-B6o8mtPdvcxDbneZXzRnB0NwGT-hToMO6Q5pZoF4ZqDTRHsK6XNg/exec" method="POST" name="google-sheet">
+        <input type="text" id="name" name="Name" placeholder="Your Name">
+        <input type="email" id="email" name="Email" placeholder="Your Email" required>
+        <button type="submit" value="submit" name="Submit">Subscribe</button>
+      </form>
+      
+
+       <script>
+        const form = document.forms['google-sheet'];
+        form.addEventListener('submit', e => {
+          e.preventDefault();
+          fetch(form.action, { method: 'POST', body: new FormData(form) })
+            .then(response => response.json())
+            .then(data => {
+              console.log(data);
+              const successMessage = document.createElement('div');
+              successMessage.innerHTML = `
+                <div id="successMessage" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; border: 1px solid #cccccc; padding: 20px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); color: #008000; font-size: 16px; font-weight: bold; opacity: 0; transition: opacity 1s;">
+                  Thanks for Contacting us..! We Will Contact You Soon...
+                </div>
+              `;
+              document.body.appendChild(successMessage);
+              setTimeout(() => {
+                document.getElementById('successMessage').style.opacity = 1;
+              }, 100); // Delay appearance for 100 milliseconds
+              setTimeout(() => {
+                document.getElementById('successMessage').style.opacity = 0;
+                setTimeout(() => {
+                  successMessage.remove();
+                }, 1000); // Remove after transition ends (1 second)
+              }, 6000); // Remove after 6 seconds
+            })
+            .catch(error => console.error('Error!', error.message));
+        });
+      </script>
+      
+      
+
+  </div>
+  </div>
+  <!-- newsletter pop up -->
+  
+<section id="hero" class="d-flex justify-content-center align-items-center">
+    <div id="heroCarousel" class="container carousel carousel-fade"
+    data-ride="carousel">
+    <img id="bottomLeftImage" src="logo-2-1.webp" alt="Logo" style="height: 120px;">
+  <!-- slide 1 -->
+
+  <div class="carousel-item active">
+    <div class="carousel-container">
+        <h2 class="animate__animated animate_backInDown" style="font-family: 'SignatureFont', cursive;">
+           Let's Create Hope...
+         </h2>
+         
+
+        <p class ="animate__animated animate__fadeInUp" style="font-size: 20px;">
+            "Your donation today can create hope for a child living in poverty, changing their future."
+        </p>
+
+        <a href="eventt.html" class="btn hero-btn animate__animated animate__animated"> Ongoing Events : Donate 🤲</a>
+    </div>
+  </div>
+
+  <!-- end of slide 1 -->
+
+   <!-- slide 2 -->
+
+   <div class="carousel-item ">
+    <div class="carousel-container">
+        <h2 class="animate__animated animate_backInDown" style="font-family: 'SignatureFont', cursive;">
+            Let's Love More...
+          </h2>
+          
+ 
+         <p class ="animate__animated animate__fadeInUp" style="font-size: 20px;">
+            "Embrace compassion, spread kindness, and let's love more for a brighter, more beautiful world."
+         </p>
+
+        <a href="eventt.html" class="btn hero-btn animate__animated animate__animated">Ongoing Events : Donate 🤲</a>
+    </div>
+  </div>
+
+  <!-- end of slide 2 -->
+
+   <!-- slide 3 -->
+
+   <div class="carousel-item ">
+    <div class="carousel-container">
+        <h2 class="animate__animated animate_backInDown" style="font-family: 'SignatureFont', cursive;">
+            Let's Unite!...
+          </h2>
+          
+ 
+         <p class ="animate__animated animate__fadeInUp" style="font-size: 20px;">
+            "Join hands with us to build a brighter future and create a more inclusive and prosperous society together."
+         </p>
+
+        <a href="eventt.html" class="btn hero-btn animate__animated animate__animated">Ongoing Events : Donate 🤲 </a>
+    </div>
+  </div>
+
+  <!-- end of slide 3 -->
+
+  <a class="carousel-control-prev" href="#heroCarousel" role="button" 
+  data-slide="prev">
+    <span class="carousel-control-prev-icon fas 
+    fa-chevron-left"aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+
+  <a class="carousel-control-next" href="#heroCarousel" role="button" 
+  data-slide="next">
+    <span class="carousel-control-next-icon fas 
+    fa-chevron-right"aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+ 
+</div>
+</section>
+
+<section id="newsletter-button" class="d-flex justify-content-start align-items-end">
+   <a href="#Newsletter"> <button class="btn newsletter-btn" id="newsletter-trigger">Newsletter</button></a>
+</section>
+
+
+
+<!-- chatbot -->
+<script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+<script src="https://mediafiles.botpress.cloud/9a507845-f5f6-4b3c-bcb1-06eb68e3b7d0/webchat/config.js" defer></script>
+<!-- chatbot end -->
+
+
+
+
+
+
+
+  <!-- end of hero section -->
+
+<!--About us-->
+<section class="mt-5" id="About Us">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-8 text-center heading-section">
+                <span>About Us</span> &nbsp; 
+                <h2 class="mb-3">Our Mission | Vision & Plans</h2>
+            </div>
+        </div>
+        <!------>
+        <div class="row tabs mt-4">
+            <div class="col-md-4">
+                <ul class="nav nav-pills nav-fill d-md-flex d-block flex-column">
+                    <li class="nav-item text-left">
+                        <a class="nav-link active py-4"data-toggle="tab"
+                        href="#about-1">About</a>
+                    </li>
+                    <li class="nav-item text-left">
+                      <a class="nav-link py-4"data-toggle="tab"
+                      href="#about-2">Our Beginning</a>
+                  </li>
+                  <li class="nav-item text-left">
+                      <a class="nav-link py-4"data-toggle="tab"
+                      href="#about-3">Our Mission</a>
+                  </li>
+                  <li class="nav-item text-left">
+                      <a class="nav-link py-4"data-toggle="tab"
+                      href="#about-4">Our Vision</a>
+                  </li>
+                  <li class="nav-item text-left">
+                      <a class="nav-link py-4"data-toggle="tab"
+                      href="#about-5">Our Mandate</a>
+                  </li>
+                  <li class="nav-item text-left">
+                      <a class="nav-link py-4"data-toggle="tab"
+                      href="#about-6">Our Plans</a>
+                  </li>
+                </ul>
+            </div>
+            <!----->
+            <div class="col-md-8">
+                <div class="tab-content">
+                    <div class="tab-pane container p-0 active"id="about-1">
+    
+      <div class="img">
+        <img src="ab3.jpg" alt="Image Description" width="690" height="375">
+    </div>
+    
+      <h3><a href="#">About Us</a></h3>
+      <p>The Helping Hands Foundation, established in 2014, is a beacon of hope and compassion dedicated to uplifting communities in need. Through our diverse range of programs and initiatives, we strive to empower individuals, promote education, and foster sustainable development. Join us as we extend our helping hands to create a brighter, more equitable future for all.</p>
+                    </div>
+                    <!----->
+       <div class="tab-pane container p-0"id="about-2">
+        <div class="img">
+            <img src="ab2.jpg" alt="Image Description" width="690" height="375">
+        </div>
+       <h3><a href="#">Our Beginning</a></h3>
+         <p>In 2014, The Helping Hands Foundation was born out of a collective desire to make a tangible difference in the world. Fuelled by compassion and a commitment to social justice, our journey began with a simple yet powerful mission: to extend a helping hand to those in need, fostering positive change and brighter futures for communities far and wide.</p>
+              </div>
+      <!----->
+      <div class="tab-pane container p-0"id="about-3">
+        <div class="img">
+            <img src="ab1.jpg" alt="Image Description" width="690" height="375">
+        </div>
+       <h3><a href="#">Our Mission</a></h3>
+         <p>At The Helping Hands Foundation, our mission is clear: to alleviate suffering, promote equality, and empower communities through sustainable initiatives. Since our establishment in 2014, we have been dedicated to serving as catalysts for positive change, working tirelessly to create a world where every individual has the opportunity to thrive and succeed.</p>
+              </div>
+      <!----->
+      <div class="tab-pane container p-0"id="about-4">
+        <div class="img">
+            <img src="ab4.jpg" alt="Image Description" width="690" height="375">
+        </div>
+       <h3><a href="#">Our Vision</a></h3>
+         <p>The mission of The Helping Hands Foundation is to provide aid, support, and opportunity to those in need, fostering sustainable development and empowering communities for a brighter future. Established in [establishment year], we are committed to serving as a beacon of hope and compassion, striving to create a more equitable and inclusive world for all.</p>
+              </div>
+      <!----->
+      <div class="tab-pane container p-0"id="about-5">
+        <div class="img">
+            <img src="ab5.jpg" alt="Image Description" width="690" height="375">
+        </div>
+       <h3><a href="#">Our Mandate</a></h3>
+         <p>The mandate of The Helping Hands Foundation is to offer assistance and resources to underserved communities, focusing on areas such as education, healthcare, and socio-economic development. Committed to fostering long-term solutions, we work collaboratively with local partners to address systemic challenges and empower individuals to build better lives.</p>
+              </div>
+      <!----->
+      <div class="tab-pane container p-0"id="about-6">
+        <div class="img">
+            <img src="ab6.jpg" alt="Image Description" width="690" height="375">
+        </div>
+       <h3><a href="#">Our Plans</a></h3>
+         <p>
+            Our plans at The Helping Hands Foundation encompass expanding our reach to serve more marginalized communities, implementing innovative programs to address pressing social issues, and forging strategic partnerships to maximize our impact. Through these efforts, we aim to create sustainable change and build a more inclusive society where everyone has the opportunity to thrive.</p>
+              </div>
+      <!----->
+                </div>
+            </div>
+               
+            </div>
+        </div>
+    </div>
+</section>
+<!--End About us-->
+&nbsp; &nbsp; &nbsp; &nbsp; <br> <br> <br>
+ 
+ <section id="Donate">
+    <div class="dcontainer">
+      <div class="dcontent">
+        <div class="dleft-column">
+          <h1>Donate Now</h1>
+          <p>Together we can make a difference.</p>
+          <h2>Help Make A Change Today!</h2>
+          <p>We greatly appreciate your generosity and support. Your donation will help us make a significant impact on the lives of those in need. Please donate what you can today.</p>
+          <form>
+          
+            <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_NqEuHzeQ7t0fNx" async> </script> </form>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+<!-- stories section -->
+<section id="Stories"></section>  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;  
+<section class="mt-3" id="Stories">
+  <div class="stories">
+      <div class="container">
+          <div class="section-title text-center">
+              <h3>Stories</h3>
+              <p>
+                "Stories of Hope: Inspiring Tales of Transformation from The Helping Hands Foundation"</p>
+          </div>
+          <!----->
+          <div class="row">
+              <div class="col-md-4">
+                  <div class="story-box overlay shadow">
+                      <div class="story-icon">
+                          <i class="fas fa-ambulance"></i>
+                      </div>
+                      <h2>Health</h2>
+                      <p>Empowering Wellness: How The Helping Hands Foundation Transforms Lives Through Accessible Healthcare Initiatives" takes readers on a journey through vibrant communities where healthcare was once a luxury. From remote villages to bustling urban centers, this story showcases the Foundation's innovative approaches to healthcare, including mobile clinics, community health education programs, and partnerships with local medical professionals.Join us as we sow the seeds of change. </p>
+                  </div>
+              </div>
+              <!----->
+              <div class="col-md-4">
+                <div class="story-box overlay shadow">
+                    <div class="story-icon">
+                        <i class="fas fa-hand-holding-water"></i>
+                    </div>
+                    <h2>Clean Water</h2>
+                    <p>"Refreshing Change: The Helping Hands Foundation's Mission to Bring Clean Water to Every Community" immerses readers in the ripple effects of water scarcity and contamination. Through innovative water purification projects, borehole drilling initiatives, and hygiene education campaigns, the Foundation ensures access to safe, clean water for all. Dive into stories of communities transformed by the simple yet profound gift of clean water, sparking health, prosperity, and hope for generations to come.</p>
+                </div>
+            </div>
+            <!----->
+            <div class="col-md-4">
+                <div class="story-box overlay shadow">
+                    <div class="story-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h2>Plants</h2>
+                    <p>"In Bloom: The Helping Hands Foundation's Green Initiatives Cultivate Sustainable Communities" invites readers into a world where nature thrives alongside human development. Discover how the Foundation's tree planting campaigns, community gardens, and environmental education efforts are nurturing ecosystems, improving air quality, and promoting sustainable livelihoods. Join us as we sow the seeds of change, fostering a greener, healthier planet for generations to come.</p>
+                </div>
+            </div>
+            <!----->
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- end of stories -->
+
+<!---Projects Section-->
+<section class="project py-5" id="Projects">
+  <div class="container">
+      <div class="row my-3">
+          <div class="col-10 mx-auto text-center">
+              <h1 class="text-uppercase">Our Latest Projects</h1>
+              <p>"Touching hearts, igniting hope, and transforming lives with boundless compassion, creating a world filled with love and possibility."</p>
+          </div>
+      </div>
+      <!----->
+      <div class="row">
+          <!--single Project-->
+          <div class="col-10 col-md-6 col-lg-4">
+              <div class="project-container p-5 outline">
+                  <img src="africa.jpg"class="img-fluid grow"alt="">
+                  <a href="https://rzp.io/l/W0soX0Ubd"><button class="donation text-capitalize">Donate Now</button></a>
+
+              </div>
+              <h4 class="text-capitalize text-center my-2">Africa Rising</h4>
+              <h6 class="text-center">
+                "Hope blooms, Africa thrives."
+              </h6>
+          </div>
+
+          
+          <!--End of Single Project-->
+          <!--single Project-->
+          <div class="col-10 col-md-6 col-lg-4">
+             <div class="project-container p-5 outline">
+                 <img src="cancer.jpg"class="img-fluid grow"alt="">
+                 <a href="https://rzp.io/l/W0soX0Ubd"><button class="donation text-capitalize">Donate Now</button></a>
+
+             </div>
+             <h4 class="text-capitalize text-center my-2">Cancer Cure</h4>
+             <h6 class="text-center">
+                "Hope for Tomorrow's Triumph."
+             </h6>
+         </div>
+         <!--End of Single Project-->
+         <!--single Project-->
+         <div class="col-10 col-md-6 col-lg-4">
+             <div class="project-container p-5 outline">
+                 <img src="ebola.jpg"class="img-fluid grow"alt="">
+                 <a href="https://rzp.io/l/W0soX0Ubd"><button class="donation text-capitalize">Donate Now</button></a>
+
+             </div>
+             <h4 class="text-capitalize text-center my-2">Pandemic: Ebola</h4>
+             <h6 class="text-center">    
+"Uniting against Ebola outbreak."
+             </h6>
+         </div>
+         <!--End of Single Project-->
+         <!--single Project-->
+         <div class="col-10 col-md-6 col-lg-4">
+             <div class="project-container p-5 outline">
+                 <img src="girlchild.jpg"class="img-fluid grow"alt="">
+                 <a href="https://rzp.io/l/W0soX0Ubd"><button class="donation text-capitalize">Donate Now</button></a>
+
+             </div>
+             <h4 class="text-capitalize text-center my-2">Girl Child Education</h4>
+             <h6 class="text-center">
+                "Empowering futures, one girl."
+             </h6>
+         </div>
+         <!--End of Single Project-->
+         <!--single Project-->
+         <div class="col-10 col-md-6 col-lg-4">
+             <div class="project-container p-5 outline">
+                 <img src="peru.jpg"class="img-fluid grow"alt="">
+                 <a href="https://rzp.io/l/W0soX0Ubd"><button class="donation text-capitalize">Donate Now</button></a>
+
+             </div>
+             <h4 class="text-capitalize text-center my-2">Peru Floods</h4>
+             <h6 class="text-center">
+            
+"Rebuilding Peru, restoring hope."
+             </h6>
+         </div>
+         <!--End of Single Project-->
+         <!--single Project-->
+         <div class="col-10 col-md-6 col-lg-4">
+             <div class="project-container p-5 outline">
+                 <img src="war.jpg"class="img-fluid grow"alt="">
+                 <a href="https://rzp.io/l/W0soX0Ubd"><button class="donation text-capitalize">Donate Now</button></a>
+
+             </div>
+             <h4 class="text-capitalize text-center my-2">Ukraine Suffering</h4>
+             <h6 class="text-center">
+                "Supporting Ukraine's Peace Efforts."
+             </h6>
+         </div>
+         <!--End of Single Project-->
+
+      </div>
+  </div>
+</section>
+<!---End of the Projects Section-->
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+<!-- Team Section-->
+
+<section class="team" id="team">
+    <div class="container">
+        <div class="section-title">
+            <h2 class="text-center">Our Team</h2>
+            <p class="text-center">"United in Compassion, Driven by Purpose: Meet the Heart of The Helping Hands Foundation." </p>
+        </div>
+        <div class="row">
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="team-1">
+                    <div class="pic">
+                        <img src="Rohit.jpeg"class="img-fluid"alt="">
+                    </div>
+                    <div class="team-info">
+                        <h4>Mr. ROHIT</h4>
+                        <span>Co-ordinator</span>
+                        <div class="social">
+                            <a href="https://x.com/nairrohit_?t=IrWRCrS_7Xvxlt1kDwUX1Q&s=09">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="https://www.instagram.com/nairrohit_?igsh=MXQ4bHFqZ2JmZmRneQ==">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/rohit-568074258?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!---->
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="team-1">
+                    <div class="pic">
+                        <img src="Harsh.jpg"class="img-fluid"alt="">
+                    </div>
+                    <div class="team-info">
+                        <h4>Mr. Harsh</h4>
+                        <span>Co-ordinator</span>
+                        <div class="social">
+                            <a href="">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!---->
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="team-1">
+                    <div class="pic">
+                        <img src="Rajeev Puri Sir.jpg"class="img-fluid"alt="">
+                    </div>
+                    <div class="team-info">
+                        <h4>Mr. Rajeev Puri</h4>
+                        <span>Mentor</span>
+                        <div class="social">
+                            <a href="">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!---->
+            
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="team-1">
+                    <div class="pic">
+                        <img src="Advisor.jpg"class="img-fluid"alt="">
+                    </div>
+                    <div class="team-info">
+                        <h4>Mr. Shah</h4>
+                        <span>Advisor</span>
+                        <div class="social">
+                            <a href="">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!---->
+        </div>
+    </div>
+</section>
+<!---End of Team Section-->
+<!--Finished projects-->
+   <br> <br>
+<section>
+    <div class="container">
+        <div class="text-center">
+            <h2 class="mb-5">Transformed Vision into Reality : Completed Projects</h2>
+          
+        </div>
+        <div class="row no-gutters">
+            <div class="col-lg-6">
+                <a class="project-item"href="">
+                    <span class="text">
+                        <span class="des">
+                            <h2>Phillipines Tsunami</h2>
+                            <p class="mb-0">
+                                "Rebuilding Lives: Completed projects offer hope after Philippine Tsunami devastation."
+                            </p>
+                        </span>
+                    </span>
+                    <img src="flood.jpeg"class="img-fluid"alt="">
+                </a>
+            </div>
+            <!---->
+            <div class="col-lg-6">
+                <a class="project-item"href="">
+                    <span class="text">
+                        <span class="des">
+                            <h2>Ebola Virus : Tanzania</h2>
+                            <p class="mb-0">
+                               "Combating Ebola in Tanzania, safeguarding communities with diligence."
+                            </p>
+                        </span>
+                    </span>
+                    <img src="eeb.jpg"class="img-fluid"alt="">
+                </a>
+            </div>
+            <!---->
+            <div class="col-lg-6">
+                <a class="project-item"href="">
+                    <span class="text">
+                        <span class="des">
+                            <h2>COVID-19 Outrage : India</h2>
+                            <p class="mb-0">
+                                "Empowering India: Together, we combat COVID-19 with resilience and unity."
+                            </p>
+                        </span>
+                    </span>
+                    <img src="cv.jpg"class="img-fluid"alt="">
+                </a>
+            </div>
+            <!---->
+            <div class="col-lg-6">
+                <a class="project-item"href="">
+                    <span class="text">
+                        <span class="des">
+                            <h2> Cancer Awareness </h2>
+                            <p class="mb-0">
+                                "Empowering survivors, spreading hope, transforming lives: our cancer awareness achievements."
+                            </p>
+                        </span>
+                    </span>
+                    <img src="cvv.jpg"class="img-fluid"alt="">
+                </a>
+            </div>
+            <!---->
+        </div>
+    </div>
+</section>
+<!---End of finished projects Section-->
+
+<footer class="footer mt-5">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-des">
+                        <h3>The Helping Hands Foundation</h3>
+                        <p class="pb-3">
+                            <em>Empowering Communities, Transforming Lives: Together, We Make a Difference.</em>
+                        </p>
+                        <p>The Helping Hands NGO <br>
+                            Hans Raj Marg, 144003, India <br><br><strong>
+                            Phone;
+                        </strong>
+                        +91 9417756273<br>
+                        <strong>
+                            Email:
+                        </strong>
+                        rohit.260803@gmail.com<br>
+                    
+                    </p>
+                    <div class="social-links mt-3">
+                        <a href=""><i class="fab fa-twitter">
+
+                        </i></a>
+                        <a href=""><i class="fab fa-facebook">
+                            
+                        </i></a>
+                        <a href=""><i class="fab fa-instagram">
+                            
+                        </i></a>
+                        <a href=""><i class="fab fa-linkedin">
+                            
+                        </i></a>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 footer-links">
+                    <h4>About Us</h4>
+                    <ul>
+                        <li>
+                            <i class="fas fa-chevron-right"></i>
+                            <a href="">Who We are?</a>
+
+                            
+                        </li>
+                        <li>
+                            <i class="fas fa-chevron-right"></i>
+                            <a href="">Our Beginning</a>
+
+                            
+                        </li>
+                        <li>
+                            <i class="fas fa-chevron-right"></i>
+                            <a href="">Our Mission</a>
+
+                            
+                        </li>
+                        <li>
+                            <i class="fas fa-chevron-right"></i>
+                            <a href="">Our Vision</a>
+
+                            
+                        </li>
+                        <li>
+                            <i class="fas fa-chevron-right"></i>
+                            <a href="">Our Mandate</a>
+
+                            
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 footer-links">
+                    <h4>Useful links</h4>
+                    <ul>
+                        <li>
+                            <i class="fas fa-chevron-right"></i>
+                            <a href="">Stories</a>
+
+                            
+                        </li>
+                        <li>
+                            <i class="fas fa-chevron-right"></i>
+                            <a href="">Projects</a>
+
+                            
+                        </li>
+                        <li>
+                            <i class="fas fa-chevron-right"></i>
+                            <a href="">Careers</a>
+
+                            
+                        </li>
+                        <li>
+                            <i class="fas fa-chevron-right"></i>
+                            <a href="">Team</a>
+
+                            
+                        </li>
+                        <li>
+                            <i class="fas fa-chevron-right"></i>
+                            <a href="https://rzp.io/l/t5Cx9HZ">Donate</a>
+
+                            
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 footer-newsletter">
+                    <h4>Our News Letters</h4>
+                    <p>Subscribe to our News Letters to always stay updated regarding our Ongoing events. </p>
+                    <form id="Newsletter">
+                        <input type="email" name="email">
+                        <input type="submit" value="Subscribe">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p style="text-align: center;">Copyright © 2024 The Helping Hands Foundation. All rights reserved.</p>
+</footer>
+
+
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

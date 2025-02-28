@@ -1,0 +1,116 @@
+body {
+	background-color: grey;
+	color: #fff;
+    font-family: "Fredoka", sans-serif;
+    transition: background-color 1s ease-in-out;
+}
+
+/* body.gray {
+    background-color: #999;
+  }
+  
+  body.white {
+    background-color: #fff;
+  } */
+
+.login-form, .signup-form {
+	display: inline-block;
+	vertical-align: top;
+	margin: 30px 0;
+	padding: 20px;
+	background-image: ;
+	color:grey;
+	border-radius: 5px;
+	/* box-shadow: 0px 0px 10px rgba(0,0,0,0.3); */
+    box-shadow: orange;
+	transition: transform 0.3s ease-in-out;
+    animation: bgTransition 6s infinite;
+}
+
+.login-form h2, .signup-form h2 {
+	margin-top: 0;
+}
+
+.login-form form, .signup-form form {
+	display: flex;
+	flex-direction: column;
+}
+
+.login-form input, .signup-form input {
+	margin-bottom: 10px;
+	padding: 10px;
+	border: none;
+	border-radius: 3px;
+	background-color: #f0f0f0;
+}
+
+.login-form button, .signup-form button {
+	padding: 10px;
+	border: none;
+	border-radius: 3px;
+	background-color: #000;
+	color: #fff;
+	cursor: pointer;
+}
+
+.login-form button:hover, .signup-form button:hover {
+	/* background-color: #333; */
+    transform: translateY(-10px);
+}
+
+.login-form a, .signup-form a {
+	color: #333;
+	text-decoration: none;
+}
+
+.login-form a:hover, .signup-form a:hover {
+	color: #000;
+}
+
+.login-form:hover, .signup-form:hover {
+	transform: translateY(-10px);
+}
+
+@keyframes bgTransition {
+    0% {
+      background-color: grey;
+    }
+    50% {
+      background-color: black;
+    }
+    100% {
+      background-color:lightgray;
+    }
+  }
+
+  .learn-more {
+	display: inline-block;
+	padding: 12px 24px;
+	background-color: white;
+	color: black;
+	text-decoration: none;
+	position: absolute;
+	bottom: 100px;
+	right: 46%;
+	border-radius: 5px;
+  }
+  
+  .learn-more:hover {
+	background-color: grey;
+	color: white;
+  }
+  
+
+
+
+
+
+
+  @keyframes slideInFromBottom {
+	  0% {
+		  top: -100px; /* Starting position */
+	  }
+	  100% {
+		  right: 70px; /* Final position */
+	  }
+  }
