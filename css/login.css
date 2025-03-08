@@ -5,20 +5,12 @@ body {
     transition: background-color 1s ease-in-out;
 }
 
-/* body.gray {
-    background-color: #999;
-  }
-  
-  body.white {
-    background-color: #fff;
-  } */
-
 .login-form, .signup-form {
 	display: inline-block;
 	vertical-align: top;
 	margin: 30px 0;
 	padding: 20px;
-	background-image: ;
+	background-image: url('../images/vol.jpg');
 	color:grey;
 	border-radius: 5px;
 	/* box-shadow: 0px 0px 10px rgba(0,0,0,0.3); */
@@ -73,17 +65,17 @@ body {
 
 @keyframes bgTransition {
     0% {
-      background-color: grey;
+        background-color: grey;
     }
     50% {
-      background-color: black;
+        background-color: black;
     }
     100% {
-      background-color:lightgray;
+        background-color:lightgray;
     }
-  }
+}
 
-  .learn-more {
+.learn-more {
 	display: inline-block;
 	padding: 12px 24px;
 	background-color: white;
@@ -93,24 +85,18 @@ body {
 	bottom: 100px;
 	right: 46%;
 	border-radius: 5px;
-  }
+}
   
-  .learn-more:hover {
+.learn-more:hover {
 	background-color: grey;
 	color: white;
-  }
-  
+}
 
-
-
-
-
-
-  @keyframes slideInFromBottom {
-	  0% {
+@keyframes slideInFromBottom {
+	0% {
 		  top: -100px; /* Starting position */
-	  }
-	  100% {
+	}
+	100% {
 		  right: 70px; /* Final position */
-	  }
-  }
+    }
+}

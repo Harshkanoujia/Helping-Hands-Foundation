@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Document </title>
+        <link rel="stylesheet" href="../css/event.css">
+    </head>
+    
+    <body>
+        <div class="navbar">
+            <a href="../index.html"><img src="../images/Welcome-removebg-preview.png" alt="Logo"></a>
+            <div class="payment">
+                <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_NqEuHzeQ7t0fNx" async> </script> </form>
+            </div>
+        </div>
+
+        <div class="slider">
+            <div class="list">
+                <div class="item">
+                    <img src="https://miro.medium.com/v2/resize:fit:1200/1*ljUXxlP4L0Hq1r-blmOUPQ.jpeg" alt="">
+                    <div class="caption">
+                        <h1> Empower Girls: Donate for Education in India </h1>
+                        <p style="size: 12px;">"Support girls' education in India for a brighter future. Your donation breaks barriers, providing scholarships and resources for their growth. Together, let's ensure every girl gets a chance to thrive."</p>
+                        <a href="https://rzp.io/l/t5Cx9HZ">
+                            <button> Donate for Girl Child Education </button>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="https://i.guim.co.uk/img/media/8f22268ec749efd70393121f7d4904961883d3ea/0_395_6720_4032/master/6720.jpg?width=700&quality=85&auto=format&fit=max&s=c65a6084607d0dfb3c445c6f30978cb9" alt="">
+                    <div class="caption">
+                        <h1> Stand with Ukraine: Donate Today </h1>
+                        <p>"Support Ukraine survivors of war. Your donation provides vital food and aid. Join our NGO in helping those affected. Together, let's bring hope and support to Ukraine."</p>
+                        <a href="https://rzp.io/l/aWAvJKsV2"> <button> Donate for Ukraine Survivors </button></a>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="https://www.newsobserver.com/latest-news/7tjbob/picture218601170/alternates/LANDSCAPE_1140/RAL_%20091618-FLORENCE-KINSTON-TEL-07.JPG" alt="">
+                    <div class="caption">
+                        <h1> Help Peru Flood Victims: Donate Now </h1>
+                        <p> "Support flood victims in Peru. Your donation provides essential aid and relief. Join our efforts to assist those affected by the devastation. Together, let's bring hope and support to Peru."</p>
+                        <a href="https://rzp.io/l/8SAsBBHS"> <button href="https://rzp.io/l/W0soX0Ubd"> Donate for Flood Victims </button> </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button id="prev"></button>
+                <button id="next">></button>
+            </div>
+
+            <ul class="dots">
+                <li class="active"></li>
+            </ul>
+        </div>
+
+        <footer class="footer mt-5">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="footer-des">
+                                <h2> The Helping Hands Foundation </h2>
+                                <p class="pb-3">
+                                    <em> Empowering Communities, Transforming Lives: Together, We Make a Difference.</em>
+                                </p>
+                                <p> The Helping Hands Foundation NGO <br>
+                                    Hans Raj Marg, 144003, Punjab, India <br><br>   
+                                    Phone : &nbsp; +91 8699298843 <br>
+                                    Email : &nbsp; harshkanoujia999@gmail.com <br>
+                                </p>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+                <p style="text-align: center;"> Copyright © 2024 The Helping Hands Foundation. All rights reserved. </p>
+            </div>
+        </footer>
+
+        <script>
+            let slider = document.querySelector('.slider .list');
+            let items = document.querySelectorAll('.slider .list .item');
+            let next = document.getElementById('next');
+            let prev = document.getElementById('prev');
+            let dots = document.querySelectorAll('.slider .dots li');
+            let lengthItems = items.length - 1;
+            let active = 0;
+            let isAnimating = false; // Add variable to track animation state
+
+            next.onclick = function(){
+                if (!isAnimating) {
+                    active = active + 1 <= lengthItems ? active + 1 : 0;
+                    reloadSlider();
+                }
+            }
+
+            prev.onclick = function(){
+                if (!isAnimating) {
+                    active = active - 1 >= 0 ? active - 1 : lengthItems;
+                    reloadSlider();
+                }
+            }
+
+            let refreshInterval = setInterval(() => { next.click() }, 3000);
+
+            function reloadSlider() {
+                isAnimating = true; // Set animation flag
+                slider.style.left = -items[active].offsetLeft + 'px';
+                let last_active_dot = document.querySelector('.slider .dots li.active');
+                last_active_dot.classList.remove('active');
+                dots[active].classList.add('active');
+
+                clearInterval(refreshInterval);
+                refreshInterval = setInterval(() => { next.click() }, 3000);
+
+                // Reset animation flag after transition ends
+                setTimeout(() => {
+                    isAnimating = false;
+                }, 1000); // Set timeout to match transition duration
+            }
+
+            dots.forEach((li, key) => {
+                li.addEventListener('click', () => {
+                    if (!isAnimating) {
+                        active = key;
+                        reloadSlider();
+                    }
+                })
+            })
+
+            window.onresize = function(event) {
+                reloadSlider();
+            };
+        </script>
+    </body>
+</html>

@@ -1,0 +1,136 @@
+body {
+    font-family: "Fredoka", sans-serif;
+    margin: 0; /* Remove default margin */
+    padding: 0;
+}
+
+.navbar {
+    background-color:orange;
+    padding: 5px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0%;
+}
+
+.navbar img {
+    max-height: 65px; /* Adjust height as needed */
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Style for the logout button */
+#logout-btn {
+    background-color: black; /* Black background color for button */
+    color: white; /* Black text color */
+    border: none;
+    border-radius: 20px; /* Rounded corners */
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; /* Transition for background color and text color */
+}
+
+#logout-btn:hover {
+    background-color: #333; /* Light black color on hover */
+    color: white; /* White text color on hover */
+}
+
+/* Style for the logout icon */
+.logout-icon {
+    color: white; /* White color for the icon */
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+/* Style for the logout button */
+.card-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 0 20px; /* Add padding for spacing from left and right edges */
+}
+
+.card {
+    width: calc(50% - 20px); /* Calculate width based on container padding */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card .content {
+    padding-top: 20px;
+}
+
+.card .content p {
+    margin: 0;
+}
+
+.apply-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-top: 10px; /* Add margin-top for spacing between text and button */
+    width: 100%; /* Make button full width */
+}
+
+.apply-button:hover {
+    background-color: #0056b3;
+}
+
+/* footer */ 
+.footer{
+    background:linear-gradient(orange,rgba(0,59,37,0.4));
+    padding: 0 0 30px 0;
+    color: #000;
+    font-size: 15px;
+}
+
+.footer .footer-top{
+    padding: 60px 0 30px 0;
+}
+
+.footer .footer-top .footer-des{
+    margin-top: -90px;
+    margin-bottom: 15px;
+    background:#101820;
+    color:#fff;
+    border-top: 4px solid orange;
+    text-align: center;
+    padding:30px 20px;
+}
+
+#loading {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid orange;
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Style for the logout button */
+/* Style for the logout button */

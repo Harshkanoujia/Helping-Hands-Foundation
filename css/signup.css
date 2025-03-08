@@ -1,0 +1,178 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    overflow: hidden;
+}
+
+#bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensure it's behind other content */
+    opacity: 2; /* Adjust opacity as needed */
+}
+
+.navbar {
+    background-color:orange;
+    padding: 5px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0%;
+}
+
+.navbar img {
+    max-height: 65px; /* Adjust height as needed */
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+h1 {
+    margin-bottom: 8%;
+    text-align: center;
+}
+
+p {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #000;
+    line-height: 0.1em;
+}
+
+p span {
+    background:#fff;
+    padding:0 10px;
+}
+
+input {
+    margin-bottom: 3%;
+}
+
+input:last-of-type {
+    margin-bottom: 0;
+}
+
+input, button {
+    padding: 3%;
+    width: 100%;
+}
+
+.login-container {
+    background-color: rgba(0, 0, 0, 0.5); /* Transparent black */
+    padding: 7%;
+    box-shadow: 0 4px 8px 0 rgba(255, 119, 0, 0.2);
+    /* Center horizontally and vertically */
+    margin-left: 400px;
+    width: 40vw;
+    margin-left: 30vw;
+    height: 70vh;
+    margin-top: 8vh;
+}
+
+#main {
+    transition: opacity 0.3s ease; /* Add transition for opacity */
+}
+
+#create-acct {
+    display: none;
+}
+
+button:hover {
+    cursor: pointer;
+    opacity: 0.8; /* Change opacity on hover */
+    transition: opacity 0.3s ease; /* Add transition for opacity */
+}
+
+#submit,
+#create-acct-btn {
+    background-color: orange;
+    color: white;
+    border: none;
+    margin-top: 5%;
+}
+
+#return-btn {
+    background: none;
+    color: black;
+    text-decoration: underline;
+    border: none;
+    margin-top: 3%;
+}
+
+#sign-up {
+    border: none;
+    color: black;
+    background-color: skyblue; /* Change background color */
+}
+
+.alert-message {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #cccccc;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #008000;
+    font-size: 16px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 1s;
+    z-index: 999; /* Ensure it's above other content */
+    animation: fade-in 0.5s ease-in-out forwards; /* Add fade-in animation */
+}
+
+.alert-message.show {
+    opacity: 1;
+}
+
+@keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+}
+
+/* Additional styling for pseudo-elements */
+.alert-message:before,
+.alert-message:after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    border-top: 1px solid #cccccc;
+    border-left: 1px solid #cccccc;
+    transform: rotate(-45deg);
+    top: -8px;
+    left: 50%;
+    margin-left: -7px;
+}
+
+.alert-message:after {
+    top: auto;
+    bottom: -8px;
+}
+
+/* Styles for screens larger than 900px */
+@media (min-width: 900px) {
+  /* CSS rules for larger screens */
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 100%;
+        width: 100%;
+    }
+}

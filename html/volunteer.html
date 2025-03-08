@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Document </title>
+        <link rel="stylesheet" href="../css/volunteer.css">
+    </head>
+
+    <body>
+        
+        <div class="navbar">
+            <a href="#"><img src="../images/Welcome-removebg-preview.png" alt="Logo"></a>
+            <button id="logout-btn"> <span class="logout-icon">&#x21AA;</span>Logout</button>
+            <div id="loading"></div>
+        </div>
+        
+        <div class="card-container">
+            <div class="card">
+                <div class="content">
+                    <h2> Role: Society Contributer & helper </h2>
+                    <h3> Responsibilities & Qualification: </h3>
+                    <ul>
+                        <li> Minimum qualification of 10th grade or equivalent.</li>
+                        <li> Create a comprehensive portfolio showcasing your community service and contributions. </li>
+                        <li> Engage actively in community service projects and initiatives.</li>
+                        <li> Develop and implement innovative strategies to address societal needs and challenges.</li>
+                        <li> Collaborate with local organizations and stakeholders to maximize impact.</li>
+                        <li> Basic computer proficiency, including knowledge of Microsoft Office suite.</li>
+                        <li> Passion for community service and contributing to societal well-being. </li>
+                        <li> Attention to detail and strong organizational skills.</li>
+                    </ul>
+                    <h3> Kindly Note:</h3>
+                    <p>Please note that instead of directly applying, we encourage individuals to compile a portfolio showcasing their community service endeavors. This portfolio should highlight the applicant's contributions, initiatives, and impacts within the community. Applicants can upload their portfolio in the form of an Excel sheet, PDF document, or Google Docs link. Upon review and assessment of the portfolio, successful candidates will be awarded a certificate from The Helping Hands Foundation.</p>
+                </div>
+            </div>
+        
+            <div class="card">
+                    <img src="../images/contributer.jpg" alt="Image 2">
+                    <div class="content">
+                        <h3> Society Contributer & helper </h3>
+                        <p> We are seeking dedicated helpers to join our team and make a positive impact in our community.</p>
+                        <a href="VolunteerForm.html"> <button class="apply-button"> Apply </button> </a>
+                    </div>
+            </div>
+        </div>
+        
+        <div>&nbsp;   &nbsp;   &nbsp;   &nbsp;   &nbsp;   &nbsp;   &nbsp; &nbsp;   &nbsp;   &nbsp;   &nbsp;   &nbsp;   &nbsp;   &nbsp;</div>&nbsp;   &nbsp;  &nbsp;   &nbsp;   &nbsp;   &nbsp;   &nbsp;   &nbsp;   &nbsp;   &nbsp;   &nbsp;   &nbsp;
+        &nbsp;   &nbsp;   &nbsp;   &nbsp;   &nbsp;   &nbsp;   &nbsp;
+        
+        <footer class="footer mt-5">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="footer-des">
+                                <h2>The Helping Hands Foundation</h2>
+                                <p class="pb-3">
+                                    <em>Empowering Communities, Transforming Lives: Together, We Make a Difference.</em>
+                                </p>
+                                <p> The Helping Hands Foundation NGO <br>
+                                    Hans Raj Marg, 144003, Punjab, India <br><br>   
+                                    Phone : &nbsp; +91 8699298843 <br>
+                                    Email : &nbsp; harshkanoujia999@gmail.com <br>
+                                </p>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+                <p style="text-align: center;"> Copyright © 2024 The Helping Hands Foundation. All rights reserved. </p>
+            </div>
+        </footer>
+        
+        <script>
+            document.getElementById("logout-btn").addEventListener("click", function() {
+                // Show loading animation
+                document.getElementById("loading").style.display = "block";
+
+                // Delay redirect for 3 seconds
+                setTimeout(function() {
+                    // Redirect to desired page after 3 seconds
+                    window.location.href = "index.html"; // Replace with your desired URL
+                }, 3000);
+            });
+        </script>    
+    </body>
+</html>
