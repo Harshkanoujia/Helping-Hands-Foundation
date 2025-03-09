@@ -14,6 +14,31 @@ html {
     }
 }  
 
+/* CSS to position the image in the top-left corner */
+#logo {
+    position: fixed;
+    top: 0px;       /* Adjust this value to your desired distance from the top */
+    left: 10px;     /* Adjust this value to your desired distance from the left */
+    z-index: 9999;  /* Ensure the logo stays on top of other content */
+}
+
+#bottomLeftImage {
+    position: fixed;
+    top: 54px;      /* Adjust this value to your desired distance from the bottom */
+    right: 70px;    /* Adjust this value to your desired distance from the right */
+    z-index: 9999;  /* Ensure the image stays on top of other content */
+    height: 120px;  /* Set the height of the image */
+    animation: slideInFromBottom 3s forwards;   /* Animation effect */        
+}
+
+@keyframes slideInFromBottom {
+    0% {
+        top: -100px;    /* Starting position */
+    }
+    100% {
+        right: 70px;    /* Final position */
+    }
+}
 
 /* Hide the default scrollbar */
 ::-webkit-scrollbar {
@@ -691,7 +716,7 @@ body{
     max-width: 300px;                 /* Maintain size */
     transition: transform 0.4s ease-in-out;
 }
-
+ 
 .team .team-1 .pic{
     width: 100%;              /* Image takes full container width */
     border-radius: 8px;       /* Soft rounded edges */

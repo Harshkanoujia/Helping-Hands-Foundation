@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin=" anonymous">
 
         <!-- main css  -->
-        <link rel="stylesheet" href="./css/main.css">
+        <link rel="stylesheet" href="./css/index.css">
 
         <!-- Font awesome link -->
         <script src="https://kit.fontawesome.com/88707c971e.js" crossorigin=" anonymous"> </script> 
@@ -24,34 +24,8 @@
         <!-- Animate.css -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-        <style>
-        /* CSS to position the image in the top-left corner */
-            #logo {
-                position: fixed;
-                top: 0px;       /* Adjust this value to your desired distance from the top */
-                left: 10px;     /* Adjust this value to your desired distance from the left */
-                z-index: 9999;  /* Ensure the logo stays on top of other content */
-            }
-
-            #bottomLeftImage {
-                position: fixed;
-                top: 54px;      /* Adjust this value to your desired distance from the bottom */
-                right: 70px;    /* Adjust this value to your desired distance from the right */
-                z-index: 9999;  /* Ensure the image stays on top of other content */
-                height: 120px;  /* Set the height of the image */
-                animation: slideInFromBottom 3s forwards;   /* Animation effect */        
-            }
-            @keyframes slideInFromBottom {
-                0% {
-                    top: -100px;    /* Starting position */
-                }
-                100% {
-                    right: 70px;    /* Final position */
-                }
-            }
-        </style>
-
-        <script src="./js/script.js" defer></script>
+        <!-- main script file load -->
+        <script src="./js/index.js" defer></script>
     </head>
   
     <!---->
@@ -78,11 +52,13 @@
                         </ul>
 
                         <div class="payment">
-                            <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_NqEuHzeQ7t0fNx" async> </script> </form>
+                            <form> 
+                                <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_NqEuHzeQ7t0fNx" async> </script> 
+                            </form>
                         </div>
 
                         <ul class="navbar-nav login"> 
-                            <li><a href="./html/Signup.html">Volunteer Us 🤝</a></li>
+                            <li><a href="./html/signup.html"> Volunteer Us 🤝 </a></li>
                         </ul>
                     </div>
                 </div>
@@ -98,42 +74,11 @@
                 <span class=" close">&times;</span>
                 <h2> Subscribe to Our Newsletter </h2>
                 <p> Stay updated with our latest news and offers! </p>
-
-
                 <form id="subscribe-form" action="https://script.google.com/macros/s/AKfycbxjmh8j7Y0P7HPXR-B6o8mtPdvcxDbneZXzRnB0NwGT-hToMO6Q5pZoF4ZqDTRHsK6XNg/exec" method="POST" name="google-sheet">
                     <input type="text" id="name" name="Name" placeholder="Your Name">
                     <input type="email" id="email" name="Email" placeholder="Your Email" required>
                     <button type="submit" value="submit" name="Submit"> Subscribe </button>
                 </form>
-                
-                <script>
-                    const form = document.forms['google-sheet'];
-                    form.addEventListener('submit', e => {
-                        e.preventDefault();
-                        fetch(form.action, { method: 'POST', body: new FormData(form) })
-                            .then(response => response.json())
-                            .then(data => {
-                                console.log(data);
-                                const successMessage = document.createElement('div');
-                                successMessage.innerHTML = `
-                                <div id="successMessage" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; border: 1px solid #cccccc; padding: 20px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); color: #008000; font-size: 16px; font-weight: bold; opacity: 0; transition: opacity 1s;">
-                                    Thanks for Contacting us..! We Will Contact You Soon...
-                                </div>`;
-
-                                document.body.appendChild(successMessage);
-                                setTimeout(() => {
-                                    document.getElementById('successMessage').style.opacity = 1;
-                                }, 100); // Delay appearance for 100 milliseconds
-                                setTimeout(() => {
-                                    document.getElementById('successMessage').style.opacity = 0;
-                                    setTimeout(() => {
-                                        successMessage.remove();
-                                    }, 1000); // Remove after transition ends (1 second)
-                                }, 6000); // Remove after 6 seconds
-                            })
-                            .catch(error => console.error('Error!', error.message));
-                    });
-                </script>
             </div>
         </div>
         <!-- end newsletter pop up -->
@@ -313,7 +258,7 @@
                                 <div class="img">
                                     <img src="./images/ab6.jpg" alt="Image Description" width="690" height="375">
                                 </div>
-                                <h3><a href="#">Our Plans</a></h3>
+                                <h3><a href="#"> Our Plans </a></h3>
                                 <p> Our plans at The Helping Hands Foundation encompass expanding our reach to serve more marginalized communities, implementing innovative programs to address pressing social issues, and forging strategic partnerships to maximize our impact. Through these efforts, we aim to create sustainable change and build a more inclusive society where everyone has the opportunity to thrive.</p>
                             </div>
                         </div>
@@ -742,7 +687,10 @@
                     </div>
                 </div>
             </div>
-            <p style="text-align: center;"> Copyright © 2024 The Helping Hands Foundation. All rights reserved. </p>
+            <!-- Copyright inside container -->
+            <div class="text-center mt-3">
+                <p> Copyright © 2024 The Helping Hands Foundation. All rights reserved. </p>
+            </div>
         </footer>
 
         <!-- Optional JavaScript -->

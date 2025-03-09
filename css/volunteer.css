@@ -113,6 +113,13 @@ body {
     padding:30px 20px;
 }
 
+.footer .text-center {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 #loading {
     display: none;
     position: fixed;

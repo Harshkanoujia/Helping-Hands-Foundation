@@ -17,22 +17,22 @@
         <div class="login-container">
             <div id="main">
                 <h1 style="color: #fff;"> Volunteer Us: Sign In </h1>
-                <input id="email" type="text" placeholder="Email"></input>
-                <input id="password" type="password" placeholder="Password"></input> <br><br>
+                <input id="email" type="text" placeholder="Email">
+                <input id="password" type="password" placeholder="Password"> <br><br>
                 
-                <label id="forgotpasslabel" style="cursor: pointer; margin-top: 80px; margin-left: 2px; text-align: center; color: white;">Forgot Password? Click here.</label>
+                <label id="forgotpasslabel" style="cursor: pointer; color: white;" onclick="forgotPassword()">Forgot Password? </label>
                 <button id="submit"> Submit </button>
 
-                <p><span>or</span></p>
+                <p><span> or </span></p>
                 <button id="sign-up"> Don't have an account? </button>
             </div>
 
-            <div id="create-acct">
+            <div id="create-acct" style="display: none;">
                 <h1 style="color: white;"> Create an Account </h1>
-                <input id="email-signup" type="text" placeholder="Email *"></input>
-                <input id="confirm-email-signup" type="email" placeholder="Confirm Email *"></input>
-                <input id="password-signup" type="password" placeholder="Password *"></input>
-                <input id="confirm-password-signup" type="password" placeholder="Confirm Password *"></input>
+                <input id="email-signup" type="text" placeholder="Email *">
+                <input id="confirm-email-signup" type="email" placeholder="Confirm Email *">
+                <input id="password-signup" type="password" placeholder="Password *">
+                <input id="confirm-password-signup" type="password" placeholder="Confirm Password *">
                 <button id="create-acct-btn"> Create Account </button>
                 <button id="return-btn" style="color: white;"> Return to Login </button>
             </div>
@@ -45,166 +45,32 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-6">
                             <div class="footer-des">
-                                <h2>The Helping Hands Foundation</h2>
+                                <h2> The Helping Hands Foundation </h2>
                                 <p class="pb-3">
-                                    <em>Empowering Communities, Transforming Lives: Together, We Make a Difference.</em>
+                                    <em> Empowering Communities, Transforming Lives: Together, We Make a Difference.</em>
                                 </p>
                                 <p> The Helping Hands Foundation NGO <br>
                                     Hans Raj Marg, 144003, Punjab, India <br><br>   
                                     Phone : &nbsp; +91 8699298843 <br>
                                     Email : &nbsp; harshkanoujia999@gmail.com <br>
                                 </p>
-                            </div>
+                           </div>
                         </div>
                     </div>
                 </div>
-                <p style="text-align: center;"> Copyright © 2024 The Helping Hands Foundation. All rights reserved. </p>
-          </div>
+            </div>
+            <div class="text-center mt-3">
+                <p> Copyright © 2024 The Helping Hands Foundation. All rights reserved. </p>
+            </div>
         </footer>
 
         <div class="alert-message" id="alert-message" style="display: none;">
             <!-- Your alert message content here -->
-            <p>Please fill out all required fields or make sure they match.</p>
-            <p>Success! Welcome back!</p>
+            <p> Please fill out all required fields or make sure they match. </p>
+            <p> Success! Welcome back! </p>
         </div>
 
-        <script type="module">
-            // Import the functions you need from the SDKs you need
-            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
-            import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
-            import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
-            import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
-
-            // Your web app's Firebase configuration
-            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-            const firebaseConfig = {
-                apiKey: "AIzaSyDPzLiGsOJDE2Z0kew6uPi2E-iOFtbY6F8",
-                authDomain: "login-signup-1a991.firebaseapp.com",
-                projectId: "login-signup-1a991",
-                storageBucket: "login-signup-1a991.appspot.com",
-                messagingSenderId: "315425462507",
-                appId: "1:315425462507:web:2cc3511f895015948ec6ae",
-                measurementId: "G-0ESJMK9KKJ"
-            };
-
-            // Initialize Firebase
-            const app = initializeApp(firebaseConfig);
-            const analytics = getAnalytics(app);
-            const auth = getAuth(app);
-            const db = getDatabase();
-        
-            function showAlert(message) {
-                const alertMessage = document.getElementById("alert-message");
-                const alertText = alertMessage.querySelector("p"); // Corrected to select the paragraph element
-
-                alertText.textContent = message;
-                alertMessage.style.display = "block";
-
-                // Hide the alert message after 5 seconds
-                setTimeout(() => {
-                    alertMessage.style.display = "none";
-                }, 5000);
-            }
-
-            const submitButton = document.getElementById("submit");
-            const signupButton = document.getElementById("sign-up");
-            const emailInput = document.getElementById("email");
-            const passwordInput = document.getElementById("password");
-            const main = document.getElementById("main");
-            const createacct = document.getElementById("create-acct");
-
-            let forgotpasslabel = document.getElementById('forgotpasslabel')
-
-            const signupEmailIn = document.getElementById("email-signup");
-            const confirmSignupEmailIn = document.getElementById("confirm-email-signup");
-            const signupPasswordIn = document.getElementById("password-signup");
-            const confirmSignUpPasswordIn = document.getElementById("confirm-password-signup");
-            const createacctbtn = document.getElementById("create-acct-btn");
-
-            const returnBtn = document.getElementById("return-btn");
-
-            createacctbtn.addEventListener('click', function() {
-                const signupEmail = signupEmailIn.value;
-                const confirmSignupEmail = confirmSignupEmailIn.value;
-                const signupPassword = signupPasswordIn.value;
-                const confirmSignUpPassword = confirmSignUpPasswordIn.value;
-
-                var isVerified = true;
-
-                if(signupEmail !== confirmSignupEmail || signupPassword !== confirmSignUpPassword || signupEmail === "" || confirmSignupEmail === "" || signupPassword === "" || confirmSignUpPassword === "") {
-                    window.alert("Please fill out all required fields or make sure they match.");
-                    isVerified = false;
-                }
-
-                if(isVerified) {
-                    createUserWithEmailAndPassword(auth, signupEmail, signupPassword)
-                        .then((userCredential) => {
-                            // Signed in 
-                            const user = userCredential.user;
-                            window.alert("Success! Account created.");
-                            
-                            // Store user data in Firebase Realtime Database
-                            const userId = user.uid;
-                            const userData = {
-                                email: signupEmail
-                                // Add more user data if needed
-                            };
-                            
-                            set(ref(db, 'users/' + userId), userData)
-                                .then(() => { window.alert("Kindly Log in Now") })
-                                .catch((error) => { window.alert("Error storing user data: " + error.message) });
-                        })
-                        .catch((error) => { window.alert("Error occurred: " + error.message) });
-                }
-            });
-
-
-            submitButton.addEventListener("click", function() {
-                const email = emailInput.value;
-                const password = passwordInput.value;
-
-                signInWithEmailAndPassword(auth, email, password)
-                    .then((userCredential) => {
-                        // Signed in
-                        const user = userCredential.user;
-                        window.alert("Success! Welcome back!");
-                        // Redirect to another page after successful login
-                        window.location.href = "volunteer.html"; // Replace with your desired URL
-                    })
-                    .catch((error) => { window.alert("Error occurred: " + error.message) });
-            });
-
-            signupButton.addEventListener("click", function() {
-                main.style.display = "none";
-                createacct.style.display = "block";
-            });
-
-            returnBtn.addEventListener("click", function() {
-                main.style.display = "block";
-                createacct.style.display = "none";
-            });
-
-
-            let ForgotPassword = () => {
-                const email = emailInput.value.trim(); // Trim whitespace from the email input
-                
-                if (!email) {
-                    alert("Please enter an email address.");
-                    return; // Exit the function early if email is empty
-                }
-            
-                sendPasswordResetEmail(auth, email)
-                    .then(() => {
-                        alert("A password reset link has been sent to your email");
-                    })
-                    .catch((error) => {
-                        console.error("Error occurred:", error.code, error.message);
-                        alert("An error occurred. Please try again later.");
-                    });
-            };
-
-            forgotpasslabel.addEventListener('click', ForgotPassword);
-        
-        </script>
+        <script type="module" src="../js/signup.js" defer> </script>
+    
     </body>
 </html>

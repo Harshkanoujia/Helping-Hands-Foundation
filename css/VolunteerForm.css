@@ -58,7 +58,7 @@ body {
 
 h2 {
     margin-top: 0;
-    color: #333;
+    color: #f4f1f1;
 }
 
 .form-group {
@@ -129,6 +129,13 @@ input[type="submit"]:hover {
     border-top: 4px solid orange;
     text-align: center;
     padding:30px 20px;
+}
+
+.footer .text-center {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 #loading {
